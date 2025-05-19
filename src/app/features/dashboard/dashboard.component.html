@@ -1,0 +1,54 @@
+<div class="dashboard-container">
+  <h2>Tableau de Bord</h2>
+  
+  <div class="stats-cards">
+    <div class="card">
+      <h3>Clients</h3>
+      <div class="stat">{{ clientCount }}</div>
+    </div>
+    
+    <div class="card">
+      <h3>Crédits</h3>
+      <div class="stat">{{ creditCount }}</div>
+    </div>
+    
+    <div class="card">
+      <h3>Remboursements</h3>
+      <div class="stat">{{ remboursementCount }}</div>
+    </div>
+  </div>
+  
+  <div class="stats-cards">
+    <div class="card">
+      <h3>Crédits en attente</h3>
+      <div class="stat">{{ creditEnAttenteCount }}</div>
+    </div>
+    
+    <div class="card">
+      <h3>Crédits acceptés</h3>
+      <div class="stat">{{ creditAccepteCount }}</div>
+    </div>
+    
+    <div class="card">
+      <h3>Crédits refusés</h3>
+      <div class="stat">{{ creditRefuseCount }}</div>
+    </div>
+  </div>
+  
+  <!-- Ici, nous ajouterons des graphiques avec Chart.js dans une prochaine étape -->
+  <div class="charts-container">
+    <div class="chart">
+      <h3>Répartition des crédits par statut</h3>
+      <div class="chart-placeholder">
+        Graphique à venir
+      </div>
+    </div>
+    
+    <div class="chart">
+      <h3>Montant total des crédits par mois</h3>
+      <div class="chart-placeholder">
+        Graphique à venir
+      </div>
+    </div>
+  </div>
+</div>

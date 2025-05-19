@@ -1,0 +1,50 @@
+<div class="client-list-container">
+  <div class="header-actions">
+    <h2>Liste des Clients</h2>
+    <div class="actions">
+      <div class="search-box">
+        <input 
+          type="text" 
+          [(ngModel)]="searchKeyword" 
+          placeholder="Rechercher un client..." 
+          (keyup.enter)="searchClients()"
+        />
+        <button (click)="searchClients()">Rechercher</button>
+      </div>
+      <button class="add-button" [routerLink]="['/clients/new']">Ajouter un client</button>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (clients.length === 0) {
+          <tr>
+            <td colspan="4" class="no-data">Aucun client trouvé</td>
+          </tr>
+        } @else {
+          @for (client of clients; track client.id) {
+            <tr>
+              <td>{{ client.id }}</td>
+              <td>{{ client.nom }}</td>
+              <td>{{ client.email }}</td>
+              <td class="actions-cell">
+                <button class="view-button" [routerLink]="['/clients', client.id]">Voir</button>
+                <button class="edit-button" [routerLink]="['/clients', client.id, 'edit']">Modifier</button>
+                <button class="delete-button" (click)="deleteClient(client.id!)">Supprimer</button>
+              </td>
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

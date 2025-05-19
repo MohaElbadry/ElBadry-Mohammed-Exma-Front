@@ -1,0 +1,34 @@
+<div class="client-form-container">
+  <h2>{{ isEditMode ? 'Modifier le client' : 'Ajouter un client' }}</h2>
+  
+  <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" formControlName="nom">
+      @if (clientForm.get('nom')?.invalid && clientForm.get('nom')?.touched) {
+        <div class="error-message">Le nom est requis</div>
+      }
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email">
+      @if (clientForm.get('email')?.invalid && clientForm.get('email')?.touched) {
+        <div class="error-message">
+          @if (clientForm.get('email')?.errors?.['required']) {
+            L'email est requis
+          } @else if (clientForm.get('email')?.errors?.['email']) {
+            Format d'email invalide
+          }
+        </div>
+      }
+    </div>
+    
+    <div class="form-actions">
+      <button type="button" class="cancel-button" (click)="cancel()">Annuler</button>
+      <button type="submit" class="submit-button" [disabled]="clientForm.invalid">
+        {{ isEditMode ? 'Mettre à jour' : 'Ajouter' }}
+      </button>
+    </div>
+  </form>
+</div>
